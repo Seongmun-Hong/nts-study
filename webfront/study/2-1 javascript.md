@@ -38,10 +38,13 @@ for(var i = 1; i <= array.length; i++)
 for(var i = array.length; i>=0; i--;)
 ```
 
-위의 코드와 아래의 코드 역시 length를 여러번 확인하게 되어 이러한 말이 나온 것 같다.
+length를 여러번 확인하게 되어 이러한 말이 나온 것 같다.
 
 따라서 length를 한번만 호출하게 해주면 될 것 같다.
 
+https://stackoverflow.com/questions/1340589/are-loops-really-faster-in-reverse
+
+https://arnaudroger.github.io/blog/2017/06/15/forward-vs-backward-loop.html
 
 ## 함수 - arguments 속성
 
@@ -98,3 +101,5 @@ var getName = (name) => "Kim " + name;
 
 읽어보기 ~
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+

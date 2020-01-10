@@ -8,10 +8,10 @@ function yourName() { // 같은 이름의 함수 선언
     console.log("yourName Function");
 }
 
-console.log(myName)
-console.log(yourName)
+console.log(myName) // Hong
+console.log(yourName) // [Function: yourName]
 // console.log(myName()) 오류!
-console.log(yourName())
+console.log(yourName()) // > undefined
 
-console.log(typeof myName); // > "string"
-console.log(typeof yourName); // > "function"
+console.log(typeof myName); // > string
+console.log(typeof yourName); // > function

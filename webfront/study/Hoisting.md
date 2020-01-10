@@ -1,7 +1,7 @@
 
 ## 호이스팅이란 !?
 
-### 함수 선언문과 함수 표현식의 차이를 먼저 이해
+### 1. 함수 선언문과 함수 표현식의 차이를 먼저 이해
 
 - 함수 선언문 
 
@@ -19,7 +19,7 @@ var func = function() {
 }
 ```
 
-### 호이스팅
+### 2. 호이스팅
 
 ```javascript
 function printName2(firstname) {
@@ -85,10 +85,54 @@ function printName5(firstname) {
 
 호이스팅이란 함수 안에 있는 선언들을 모두 끌어올려서 해당 함수 유효 범위의 최상단에 선언하는 것을 말한다.
 
-### 같은 이름의 var 변수 선언과 함수 선언에서의 호이스팅
+### 2-1. 같은 이름의 var 변수 선언과 함수 선언에서의 호이스팅
+
+#### 변수 선언이 함수 선언보다 위로 끌어올려진다.
 
 ```javascript
-var myName = "Heee"; // 값 할당 
+var myName = "hi";
+
+function myName() {
+    console.log("yuddomack");
+}
+function yourName() {
+    console.log("everyone");
+}
+
+var yourName = "bye";
+
+console.log(typeof myName);
+console.log(typeof yourName);
+```
+
+위의 코드는 아래와 같이 호이스팅이 이루어진다.
+
+```javascript
+/** --- JS Parser 내부의 호이스팅(Hoisting)의 결과 --- */
+// 1. [Hoisting] 변수값 선언 
+var myName; 
+var yourName; 
+
+// 2. [Hoisting] 함수선언문
+function myName() {
+    console.log("yuddomack");
+}
+function yourName() {
+    console.log("everyone");
+}
+
+// 3. 변수값 할당
+myName = "hi";
+yourName = "bye";
+
+console.log(typeof myName); // > string
+console.log(typeof yourName); // > string
+```
+
+### 2-2. 값이 할당되어있지 않은 변수와 할당되어있는 변수에서 호이스팅
+
+```javascript
+var myName = "Hong"; // 값 할당 
 var yourName; // 값 할당 X
 
 function myName() { // 같은 이름의 함수 선언
@@ -98,10 +142,18 @@ function yourName() { // 같은 이름의 함수 선언
     console.log("yourName Function");
 }
 
-console.log(typeof myName); // > "string"
-console.log(typeof yourName); // > "function"
+console.log(myName) // Hong
+console.log(yourName) // [Function: yourName]
+// console.log(myName()) 오류!
+console.log(yourName()) // > undefined
+
+console.log(typeof myName); // > string
+console.log(typeof yourName); // > function
 ```
+
+2-1에서 확인하였듯 변수값 할당이 마지막으로 진행되기 때문에 myName은 변수값 할당이 마지막에 이루어져 string이 되고 yourName은 변수값 할당이 없기 때문에 함수가 된다. 또한 myName은 string이 되었기 때문에 myName()을 호출하면 오류가 발생한다.
 
 ### 정리
 
-- 코드의 가독성과 유지보수를 위해 호이스팅이 일어나지 않도록 선언문의 순서를 유의하자.
+- 코드의 가독성과 유지보수를 위해 호이스팅이 일어나지 않도록 하는 것이 좋다. 
+    - 함수와 변수를 가급적 코드 상단부에 선언하면 호이스팅으로 인한 스코프 꼬임 현상은 방지할 수 있다.
