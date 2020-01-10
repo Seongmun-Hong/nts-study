@@ -39,12 +39,12 @@ public class CORSFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		System.out.println("filter destroy");
+		//		System.out.println("filter destroy");
 	}
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		System.out.println("filter init");
+		//		System.out.println("filter init");
 	}
 
 }
