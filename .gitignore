@@ -76,3 +76,5 @@ local.properties
 target/
 
 # End of https://www.gitignore.io/api/eclipse,java-web
+
+**/build/
