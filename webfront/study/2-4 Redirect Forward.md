@@ -20,3 +20,18 @@
 2. Servlet1은 요청을 처리한 후, 그 결과를 HttpServletRequest에 저장
 3. Servlet1은 결과가 저장된 HttpServletRequest와 응답을 위한 HttpServletResponse를 같은 웹 어플리케이션 안에 있는 Servlet2에게 전송(forward)
 4. Servlet2는 Servlet1으로 부터 받은 HttpServletRequest와 HttpServletResponse를 이용하여 요청을 처리한 후 웹 브라우저에게 결과를 전송
+
+
+## 하나의 Servlet에서 여러개의 url 받는 방법
+
+```java
+String subPath = request.getPathInfo();
+
+if (subPath.equals("/하위 경로 명")) {
+
+} else if (subPath.equals("/하위 경로 명")){
+
+}
+```
+
+위와 같은 방법으로 하나의 url에서 와일드카드 기호('*')를 통해 여러개의 url 요청을 처리할 수 있다.
