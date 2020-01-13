@@ -14,6 +14,12 @@ http://www.ciokorea.com/print/35385
     - GRANT, REVOKE 등이 여기에 해당합니다.
 
 
+## database 생성
+
+```sql
+create database connectdb;
+```
+
 ## MYSQL 8버전 이상 유저 생성
 
 ```SQL
