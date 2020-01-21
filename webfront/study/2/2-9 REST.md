@@ -22,4 +22,4 @@ https://youtu.be/RP_f5dMoHFc
 위의 모든 것들을 지키지 못한다면 Web API 혹은 HTTP API라고 부른다.
 
 (REST의 모든 것을 제공하지 않으면서 REST API라고 말하는 경우도 있습니다.)
-    - 하지만 모두 다 따르는 것을 REST API라고 부르기로 하겠다.
+    - 하지만 모두 다 따르는 것을 REST API라고 부르기로 하겠다. 

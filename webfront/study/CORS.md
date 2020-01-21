@@ -7,13 +7,13 @@
 - 동일 출처 정책(same-origin policy)
     - 불러온 문서나 스크립트가 다른 출처에서 가져온 리소스와 상호작용하는 것을 제한하는 중요한 보안 방식이다. 이것은 잠재적 악성 문서를 격리하여, 공격 경로를 줄이는데 도움이 된다.
 
-### 1. 요청 시 OPTIONS가 날라가던 이유 ?
+### 요청 시 OPTIONS가 날라가던 이유 ?
 
 사용자 데이터 상에서 부수 효과를 일으킬 수 있는 HTTP 요청 메서드에 대해 스펙은 브라우저가 요청을 "preflight"(사전 전달)하도록 강제하는데, 이는 HTTP OPTIONS 요청 메서드를 이용해 서버로부터 지원 중인 메서드들을 내려 받은 뒤, 서버에서 "approval"(승인) 시에 실제 HTTP 요청 메서드를 이용해 실제 요청을 전송한다.
 
 >https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS 해당 링크에 자세한 설명이 더 많이 나와있다. 꼭 다시 공부해 볼 것!
 
-## 2. Servlet에서 CROS문제 해결하기
+## 1. Servlet에서 CROS문제 해결하기
 
 CROS문제를 해결해보기 위한 html, javascript를 생성하자.
 
@@ -123,7 +123,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 
 크롬 개발자도구에서 network탭을 통하여 확인해 보면 request header의 origin이 null이다. 이렇듯 origin이 null로 왔기 때문에 서버에서는 이러한 null로 온 origin을 허용하기 위하여 *(모두 허용)을 사용하였다. 특정 호스트만 허용하고자 할때 요청 header의 origin값을 확인하여 해당 사용자만 허용할 수 있다.
 
-## 3. 데이터를 포함한 요청...?
+## 2. 데이터를 포함한 요청...?
 
 cors.js파일을 아래와 같이 수정하여 데이터를 포함하여 요청을 보낸다.
 
@@ -179,7 +179,7 @@ protected void doOptions(HttpServletRequest request, HttpServletResponse respons
 
 이외의 타입으로 요청하였기 때문에 "Request header field content-type is not allowed by Access-Control-Allow-Headers in preflight response."와 같은 응답을 받았다. 따라서 Access-Control-Allow-Headers에 Content-Type을 넣어주어 허용해 주었다.
 
-또한 2번 예제에서와 같이 origin도 allow 해주면 CORS 문제를 해결할 수 있다.
+또한 1번 예제에서와 같이 origin도 allow 해주면 CORS 문제를 해결할 수 있다.
 
 
 > Filter에서 Request 별로 header와 origin을 허용해준다면 더욱 쉽게 문제를 해결할 수 있다.
