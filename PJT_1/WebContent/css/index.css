@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.link_buttons {
+	margin: 20px 0;
+}
+
+.link_button {
+	display: inline-block;
+	color: white;
+	background-color: #669abf;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	margin: 0 5px;
+}
+
+.link_button:hover {
+	color: #ffbe6e
+}
+
+img.map_img {
+	width: 500px;
+}

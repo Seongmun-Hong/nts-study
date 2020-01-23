@@ -1,13 +1,19 @@
 package com.naver.todo.dto;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import com.naver.todo.enums.TodoType;
+
 public class Todo {
+	private static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy.MM.dd");
 
 	private long id;
 	private String title;
 	private String name;
 	private int sequence;
-	private String type;
-	private String regDate;
+	private TodoType type;
+	private LocalDateTime registrationDate;
 
 	public long getId() {
 		return id;
@@ -41,26 +47,29 @@ public class Todo {
 		this.sequence = sequence;
 	}
 
-	public String getType() {
+	public TodoType getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(TodoType type) {
 		this.type = type;
 	}
 
-	public String getRegDate() {
-		return regDate;
+	public LocalDateTime getRegistrationDate() {
+		return registrationDate;
 	}
 
-	public void setRegdate(String regdate) {
-		this.regDate = regdate;
+	public String getFormattedRegistrationDate() {
+		return registrationDate.format(FORMATTER);
+	}
+
+	public void setRegistrationDate(LocalDateTime registrationDate) {
+		this.registrationDate = registrationDate;
 	}
 
 	@Override
 	public String toString() {
 		return "Todo [id=" + id + ", title=" + title + ", name=" + name + ", sequence=" + sequence + ", type=" + type
-			+ ", regDate=" + regDate + "]";
+			+ ", registrationDate=" + registrationDate + "]";
 	}
-
 }

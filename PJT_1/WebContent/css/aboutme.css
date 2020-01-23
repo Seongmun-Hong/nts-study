@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.introduce_item {
+	margin: 30px 10%;
+	text-align: left;
+}
+
+.introduce_title {
+	margin: 0;
+}
+
+.introduce_description {
+	margin: 0 0 5px 0;
+}
+
+a.external_site_link {
+	color: blue;
+}

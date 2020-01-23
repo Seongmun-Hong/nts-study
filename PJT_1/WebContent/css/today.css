@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.main_link {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	flex: 0 0 30px;
+	font-size: 1.5em;
+}
+
+body.today_page {
+	display: flex;
+	flex-direction: column;
+}
+
+.time_wrap {
+	flex: 1 1 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.time {
+	font-size: 3em;
+	text-align: center;
+}
