@@ -1,0 +1,52 @@
+<html>
+<head>
+    <style>
+        h2 {
+            text-align: center;
+        }
+        h2, h4{
+            margin: 0px;
+        }
+        .tab {
+            width: 600px;
+            margin: 0px auto;
+        }
+        .tabmenu {
+            background-color: bisque;
+        }    
+        .tabmenu > div {
+            display:inline-block;
+            width: 145px;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        .content {
+            background-color: antiquewhite;
+            padding: 5%;
+        }
+    </style>
+</head>
+<body>
+<h2>TAB UI TEST</h2>
+
+<div class="tab">
+    <div class="tabmenu">
+        <div>crong</div>
+        <div>jk</div>
+        <div>pobi</div>
+        <div>honux</div>
+    </div>
+    <section class="content">
+        <h4>hello jk</h4>
+        <p>golf, facebook</p>
+    </section>
+</div>
+<script id="tabcontent" type="text/x-my-template">
+    <h4> hello ${name} </h4>
+    <p>${favorites}</p>
+</script>
+<script src="tabui.js"></script>
+</body>
+</html>
