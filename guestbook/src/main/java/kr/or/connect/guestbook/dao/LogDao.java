@@ -2,9 +2,13 @@ package kr.or.connect.guestbook.dao;
 
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+
+import com.mysql.jdbc.log.Log;
 
 @Repository
 public class LogDao {
@@ -17,6 +21,12 @@ public class LogDao {
 		this.insertAction = new SimpleJdbcInsert(dataSource)
 			.withTableName("log")
 			.usingGeneratedKeyColumns("id");
+	}
+
+	public long insert(Log log) {
+		SqlParameterSource params = new BeanPropertySqlParameterSource(log);
+		return insertAction.executeAndReturnKey(params).longValue();
+
 	}
 
 }
