@@ -145,3 +145,13 @@
 - org.springframework.web.servlet.ViewResolver
     - 컨트롤러가 리턴한 뷰 이름을 참고해서 적절한 뷰 오브젝트를 찾아주는 로직을 가진 전략 오프젝트이다.
     - 뷰의 종류에 따라 적절한 뷰 리졸버를 추가로 설정해줄 수 있다.
+
+
+
+
+## DispatcherServlet을 FrontContoller로 설정하기
+
+- web.xml 파일에 설정
+- javax.servlet.ServletContainerInitializer 사용
+    - 서블릿 3.0 스펙 이상에서 web.xml파일을 대신해서 사용할 수 있다.
+- org.springframework.web.WebApplicationInitializer 인터페이스를 구현해서 사용

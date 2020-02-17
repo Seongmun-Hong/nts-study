@@ -28,3 +28,18 @@
 
 - SimpleJdbcInsert
     - 테이블에 쉽게 데이터 insert 기능을 제공
+
+
+## DTO란?
+
+- DTO란 Data Transfer Object의 약자입니다.
+- 계층간 데이터 교환을 위한 자바빈즈입니다.
+- 여기서의 계층이란 컨트롤러 뷰, 비지니스 계층, 퍼시스턴스 계층을 의미합니다.
+- 일반적으로 DTO는 로직을 가지고 있지 않고, 순수한 데이터 객체입니다.
+- 필드와 getter, setter를 가진다. 추가적으로 toString(), equals(), hashCode()등의 Object 메소드를 오버라이딩 할 수 있습니다.
+
+
+## DAO란?
+
+- DAO란 Data Access Object의 약자로 데이터를 조회하거나 조작하는 기능을 전담하도록 만든 객체입니다.
+- 보통 데이터베이스를 조작하는 기능을 전담하는 목적으로 만들어집니다.
