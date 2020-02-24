@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <style>
+        header,
+        nav,
+        section,
+        div,
+        footer,
+        ul,
+        dd {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        dt {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        dl {
+            float: left;
+            width: 75%;
+        }
+
+        dd {
+            font-size: 0.9em;
+        }
+
+        .mainHeader {
+            height: 200px;
+            text-align: center;
+            padding-top: 20px;
+            line-height: 1.4em
+        }
+
+        .userId {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .userMessage,
+        .userSNSInfo {
+            font-size: 0.8em;
+            color: gray;
+        }
+
+        .userSNSInfo {
+            overflow: auto;
+            width: 255px;
+            margin: 0pxauto;
+        }
+
+        .userSNSInfo>li {
+            float: left;
+            margin-right: 5px;
+            width: 80px;
+        }
+
+        .userSNSInfospan.count {
+            color: #1FB820;
+        }
+
+        .mainView>nav {
+            height: 40px;
+            margin-top: 10px;
+            overflow: auto;
+            border-bottom: 1pxsolidrgb(228, 228, 228);
+            border-top: 1pxsolidrgb(228, 228, 228);
+        }
+
+        .tab {
+            border-right: 1pxsolidrgb(228, 228, 228);
+            float: left;
+            height: 100%;
+            line-height: 40px;
+            text-align: center;
+            width: 24.5%;
+            cursor: pointer;
+        }
+
+        .tab:last-child {
+            border-right: 0px;
+        }
+
+
+        .mainView>section {
+            display: none;
+            padding: 1em;
+            line-height: 1.5em;
+        }
+
+        .mainView>section.eleDisplayShow {
+            display: block;
+            padding: 5em;
+            line-height: 1.5em;
+        }
+
+        .myName {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .myDesc {
+            font-size: 0.8em;
+        }
+
+        .eleDisplayShowli {
+            margin-bottom: 1em;
+        }
+
+        .selectedTab {
+            background-color: #DF9274;
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center
+        }
+
+        h2,
+        h4 {
+            margin: 0px;
+        }
+
+        .tab {
+            width: 600px;
+            margin: 0pxauto;
+        }
+
+        .tabmenu {
+            background-color: bisque;
+        }
+
+        .tabmenu>div {
+            display: inline-block;
+            width: 146px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 5%;
+            background-color: antiquewhite;
+        }
+    </style>
+</header>
+
+<body>
+<h2> TAB UI TEST</h2>
+
+<div class="tab">
+    <div class="tabmenu">
+        <div>crong</div>
+        <div>jk</div>
+        <div>pobi</div>
+        <div>honux</div>
+    </div>
+    <section class="content">
+        <h4>hello jk</h4>
+        <p>golf, facebook</p>
+    </section>
+</div>
+<script>
+    function Tab() {
+        this.registerEvent();
+    }
+
+    Tab.prototype = {
+        registerEvent: function () {
+            var tabmenu = document.querySelector(".tabmenu");
+            tabmenu.addEventListener("click", function (evt) {
+                this.sendAjax(evt.target.innerText);
+            }.bind(this))
+        },
+
+        sendAjax: function (clickedName) {
+            const data = [
+                { name: 'crong', favorites: 'soccer' }, { name: 'jk', favorites: ['golf, facebook'] }, { name: 'pobi', favorites: 'game' }, { name: 'honux', favorites: 'comics' }
+            ]
+            this.makeTemplate(data, clickedName);
+        },
+
+        makeTemplate: function (data, clickedName) {
+            var html = document.getElementById("tabcontent").innerHTML;
+            var resultHTML = "";
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].name === clickedName) {
+                    resultHTML = html.replace("{name}", data[i].name)
+                        .replace("{favorites}", data[i].favorites);
+                    break;
+                }
+            }
+            document.querySelector(".content").innerHTML = resultHTML;
+        }
+    }
+</script>
+<script id="tabcontent" type="my-template">
+    <h4>hello {name}</h4>
+    <p>{favorites}</p>
+</script>
+</body>
+
+</html>
